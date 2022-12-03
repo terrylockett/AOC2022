@@ -7,7 +7,7 @@ import java.util.*;
 public class RuckSackValidator {
 
     //part 1
-    static int findDuplicateItemsTotal(String filePath) throws FileNotFoundException {
+    public static int findDuplicateItemsTotal(String filePath) throws FileNotFoundException {
 
         int total = 0;
 
@@ -37,7 +37,7 @@ public class RuckSackValidator {
     }
 
     //part 2
-    static int findBadgeTotals(String filePath) throws Exception {
+    public static int findBadgeTotals(String filePath) throws Exception {
 
         int total = 0;
 
@@ -80,7 +80,7 @@ public class RuckSackValidator {
      * @param c char to be converted. Must be in [a-zA_Z]
      * @return priority of the character
      */
-    static int charToPriority(char c) {
+    public static int charToPriority(char c) {
         if (Character.isUpperCase(c)) {
             return c - 0x26;
         }
