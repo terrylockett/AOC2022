@@ -1,0 +1,8 @@
+dependencies {
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+}
+
+application {
+    mainClass = 'ca.terrylockett.aoc2022.day02.Day02Runner'
+}
