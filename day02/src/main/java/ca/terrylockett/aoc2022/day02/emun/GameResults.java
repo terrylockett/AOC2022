@@ -1,4 +1,4 @@
-package ca.terrylockett.aoc2022.day02;
+package ca.terrylockett.aoc2022.day02.emun;
 
 public enum GameResults {
     LOST(0),
@@ -7,13 +7,13 @@ public enum GameResults {
 
 
 
-    final int score;
+    public final int score;
 
     GameResults(int score) {
         this.score = score;
     }
 
-    static GameResults getResultBasedOnChar(char input) throws Exception {
+    public static GameResults getResultBasedOnChar(char input) throws Exception {
         switch (input){
             case 'X':
                 return LOST;

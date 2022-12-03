@@ -1,7 +1,9 @@
 package ca.terrylockett.aoc2022.day02;
 
+import ca.terrylockett.aoc2022.day02.emun.GameResults;
+import ca.terrylockett.aoc2022.day02.emun.Shapes;
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -15,7 +17,7 @@ public class RockPaperScissorsGame {
 
         Scanner scan = new Scanner(fileInStreamPath);
         int gameScore = 0;
-        while(scan.hasNextLine()) {
+        while (scan.hasNextLine()) {
             String line = scan.nextLine();
 
             Shapes opponentPlay = Shapes.getShapeBasedOnChar(line.charAt(0));
@@ -23,29 +25,29 @@ public class RockPaperScissorsGame {
 
             int roundScore = 0;
 
-            switch(opponentPlay) {
-                case ROCK: //Rock
-                    if(myPlay == Shapes.ROCK){ //Ties vs rock
-                        roundScore+=3;
+            switch (opponentPlay) {
+                case ROCK:
+                    if (myPlay == Shapes.ROCK) {
+                        roundScore += 3;
                     }
-                    if(myPlay == Shapes.PAPER){ // beats scissors
-                        roundScore+=6;
-                    }
-                    break;
-                case PAPER: //Paper
-                    if(myPlay == Shapes.PAPER){ //ties paper
-                        roundScore+=3;
-                    }
-                    if(myPlay == Shapes.SCISSORS){ //beat rock
-                        roundScore+=6;
+                    if (myPlay == Shapes.PAPER) {
+                        roundScore += 6;
                     }
                     break;
-                case SCISSORS: //Scissors
-                    if(myPlay == Shapes.SCISSORS){ //ties scissors
-                        roundScore+=3;
+                case PAPER:
+                    if (myPlay == Shapes.PAPER) {
+                        roundScore += 3;
                     }
-                    if(myPlay == Shapes.ROCK){ // beats papers
-                        roundScore+=6;
+                    if (myPlay == Shapes.SCISSORS) {
+                        roundScore += 6;
+                    }
+                    break;
+                case SCISSORS:
+                    if (myPlay == Shapes.SCISSORS) {
+                        roundScore += 3;
+                    }
+                    if (myPlay == Shapes.ROCK) {
+                        roundScore += 6;
                     }
                     break;
             }
@@ -66,7 +68,7 @@ public class RockPaperScissorsGame {
 
         Scanner scan = new Scanner(fileInStreamPath);
         int gameScore = 0;
-        while(scan.hasNextLine()) {
+        while (scan.hasNextLine()) {
             String line = scan.nextLine();
 
             Shapes opponentPlay = Shapes.getShapeBasedOnChar(line.charAt(0));
@@ -94,10 +96,10 @@ public class RockPaperScissorsGame {
                             shapePlayedScore = Shapes.ROCK.getPlayedScore();
                             break;
                         case PAPER:
-                            shapePlayedScore =Shapes.PAPER.getPlayedScore();
+                            shapePlayedScore = Shapes.PAPER.getPlayedScore();
                             break;
                         case SCISSORS:
-                            shapePlayedScore =Shapes.SCISSORS.getPlayedScore();
+                            shapePlayedScore = Shapes.SCISSORS.getPlayedScore();
                             break;
                     }
                     break;
@@ -116,7 +118,7 @@ public class RockPaperScissorsGame {
                     break;
             }
 
-            gameScore += (shapePlayedScore+IntendedResult.score);
+            gameScore += (shapePlayedScore + IntendedResult.score);
 
         }
 

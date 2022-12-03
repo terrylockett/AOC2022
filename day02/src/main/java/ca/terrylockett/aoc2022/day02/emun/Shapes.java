@@ -1,11 +1,11 @@
-package ca.terrylockett.aoc2022.day02;
+package ca.terrylockett.aoc2022.day02.emun;
 
 public enum Shapes {
     ROCK(1),
     PAPER(2),
     SCISSORS(3);
 
-    final int playedScore;
+    public final int playedScore;
 
     Shapes(int playedScore) {
         this.playedScore = playedScore;
