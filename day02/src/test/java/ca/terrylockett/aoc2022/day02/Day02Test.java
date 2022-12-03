@@ -1,20 +1,28 @@
 package ca.terrylockett.aoc2022.day02;
 
+import ca.terrylockett.aoc2022.common.InputFileHelper;
 import org.apache.commons.io.IOUtils;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Day02Test {
 
-    static final String TEST_FILE_PATH = "./etc/input/test/test_input.txt";
+    static final String TEST_FILE_NAME = "test_input.txt";
+    static String testFile = "";
+
+    @BeforeAll
+    public static void setup() throws URISyntaxException {
+        testFile = InputFileHelper.getFilePath(Day02Test.class, TEST_FILE_NAME);
+    }
 
     @Test
     public void part01_sampleInput() throws Exception {
-        assertEquals(15, RockPaperScissorsGame.playGames(TEST_FILE_PATH));
+        assertEquals(15, RockPaperScissorsGame.playGames(testFile));
     }
 
     @Test
@@ -68,7 +76,7 @@ public class Day02Test {
 
     @Test void part02_sampleInput() throws Exception {
 
-        assertEquals(12, RockPaperScissorsGame.playGames02(TEST_FILE_PATH));
+        assertEquals(12, RockPaperScissorsGame.playGames02(testFile));
     }
 
     @Test

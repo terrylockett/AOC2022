@@ -23,7 +23,14 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    apply plugin: 'application'
+
+    if (!it.name.equals('advent-common')) {
+        apply plugin: 'application'
+        dependencies {
+            implementation project(':advent-common')
+        }
+    }
+
 
     dependencies {
         testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'

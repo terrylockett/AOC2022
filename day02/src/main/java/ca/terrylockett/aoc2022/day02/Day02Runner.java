@@ -1,23 +1,18 @@
 package ca.terrylockett.aoc2022.day02;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import ca.terrylockett.aoc2022.common.InputFileHelper;
 
 public class Day02Runner {
 
     public static void main(String[] args) throws Exception {
 
-        System.out.println(new File("./").getAbsolutePath());
+        String filePath = InputFileHelper.getFilePath(Day02Runner.class, "input.txt");
 
-        String filePath = "./etc/input/main/input.txt";
-
+        //********  part 01 **********
         System.out.println("Part 01 Game Total: " + RockPaperScissorsGame.playGames(filePath));
-
-
 
         //********  part 02 **********
         System.out.println("Part 02 Game Total: " + RockPaperScissorsGame.playGames02(filePath));
 
     }
-    
 }

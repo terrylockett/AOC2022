@@ -1,11 +1,10 @@
 package ca.terrylockett.aoc2022.day03;
 
+import ca.terrylockett.aoc2022.common.InputFileHelper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,12 +17,7 @@ public class TestDay3 {
 
     @BeforeAll
     static void setup() throws URISyntaxException {
-        URL resource = TestDay3.class.getClassLoader().getResource(TEST_FILE_NAME);
-        if (resource == null) {
-            throw new IllegalArgumentException("file not found! " + TEST_FILE_NAME);
-        }
-
-        testFilePath = new File(resource.toURI()).getAbsolutePath();
+        testFilePath = InputFileHelper.getFilePath(TestDay3.class, TEST_FILE_NAME);
     }
 
     @Test

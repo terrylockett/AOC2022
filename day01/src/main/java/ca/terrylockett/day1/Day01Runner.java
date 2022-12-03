@@ -1,17 +1,15 @@
 package ca.terrylockett.day1;
 
-import java.io.File;
+import ca.terrylockett.aoc2022.common.InputFileHelper;
+
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 public class Day01Runner {
 
     public static void main(String[] args) throws URISyntaxException, FileNotFoundException {
 
-        ClassLoader classLoader = Day01Runner.class.getClassLoader();
-        URL resource = classLoader.getResource("input.txt");
-        String filePath = new File(resource.toURI()).getAbsolutePath();
+        String filePath = InputFileHelper.getFilePath(Day01Runner.class, "input.txt");
 
 
         //*****  part 01  *****//

@@ -1,12 +1,11 @@
 package ca.terrylockett.day1;
 
+import ca.terrylockett.aoc2022.common.InputFileHelper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,7 +17,7 @@ public class TestDay01 {
 
     @BeforeAll
     public static void setup() throws URISyntaxException {
-        testFilePath = getFileAbsPath(TEST_FILE_NAME);
+        testFilePath = InputFileHelper.getFilePath(TestDay01.class, TEST_FILE_NAME);
     }
 
     @Test
@@ -33,16 +32,5 @@ public class TestDay01 {
     }
 
 
-    //What a way to load a file.
-    //truly magnificent.
-    static String getFileAbsPath(String fileName) throws URISyntaxException {
-        ClassLoader classLoader = DumbElfCalorieTracker.class.getClassLoader();
-        URL resource = classLoader.getResource(fileName);
-        if (resource == null) {
-            throw new IllegalArgumentException("file not found! " + fileName);
-        }
-
-        return new File(resource.toURI()).getAbsolutePath();
-    }
 
 }
