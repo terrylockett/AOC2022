@@ -17,7 +17,7 @@ public class TestDay3 {
 
     @BeforeAll
     static void setup() throws URISyntaxException {
-        testFilePath = InputFileHelper.getFilePath(TestDay3.class, TEST_FILE_NAME);
+        testFilePath = InputFileHelper.getFilePath(TestDay3.class.getClassLoader(), TEST_FILE_NAME);
     }
 
     @Test

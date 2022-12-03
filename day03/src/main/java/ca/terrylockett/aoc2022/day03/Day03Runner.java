@@ -9,7 +9,7 @@ public class Day03Runner {
 
     public static void main(String[] args) throws Exception {
 
-        String inputFilePath = InputFileHelper.getFilePath(Day03Runner.class, INPUT_FILE_NAME);
+        String inputFilePath = InputFileHelper.getFilePath(Day03Runner.class.getClassLoader(), INPUT_FILE_NAME);
 
         //******** Part 01 ********
         System.out.println("Day3 Part1: " + RuckSackValidator.findDuplicateItemsTotal(inputFilePath));

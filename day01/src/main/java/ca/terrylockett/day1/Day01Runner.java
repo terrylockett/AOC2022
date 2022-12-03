@@ -9,7 +9,7 @@ public class Day01Runner {
 
     public static void main(String[] args) throws URISyntaxException, FileNotFoundException {
 
-        String filePath = InputFileHelper.getFilePath(Day01Runner.class, "input.txt");
+        String filePath = InputFileHelper.getFilePath(Day01Runner.class.getClassLoader(), "input.txt");
 
 
         //*****  part 01  *****//

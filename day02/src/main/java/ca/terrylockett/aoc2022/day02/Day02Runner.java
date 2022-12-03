@@ -6,7 +6,7 @@ public class Day02Runner {
 
     public static void main(String[] args) throws Exception {
 
-        String filePath = InputFileHelper.getFilePath(Day02Runner.class, "input.txt");
+        String filePath = InputFileHelper.getFilePath(Day02Runner.class.getClassLoader(), "input.txt");
 
         //********  part 01 **********
         System.out.println("Part 01 Game Total: " + RockPaperScissorsGame.playGames(filePath));
