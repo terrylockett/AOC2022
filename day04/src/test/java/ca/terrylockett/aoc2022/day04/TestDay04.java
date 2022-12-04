@@ -21,11 +21,11 @@ public class TestDay04 {
 
     @Test
     public void day4Part1() throws Exception {
-        assertEquals(2, CampAssignmentCleaner.findDuplicateAssignments(testFilePath));
+        assertEquals(2, CampAssignmentCleaner.findAssignmentsErrorsCount(testFilePath));
     }
 
     @Test
     public void day4Part2() throws Exception {
-        assertEquals(4, CampAssignmentCleaner.findDuplicateAssignments(testFilePath, true));
+        assertEquals(4, CampAssignmentCleaner.findAssignmentsErrorsCount(testFilePath, true));
     }
 }

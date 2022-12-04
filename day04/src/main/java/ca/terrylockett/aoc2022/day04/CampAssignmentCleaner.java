@@ -9,11 +9,14 @@ public class CampAssignmentCleaner {
 
     private static final Pattern ASSIGN_PAT = Pattern.compile("(\\d+)-(\\d+),(\\d+)-(\\d+)");
 
-    static int findDuplicateAssignments(String filePath) throws Exception {
-        return findDuplicateAssignments(filePath, false);
+
+
+    static int findAssignmentsErrorsCount(String filePath) throws Exception {
+        return findAssignmentsErrorsCount(filePath, false);
     }
 
-    public static int findDuplicateAssignments(String filePath, boolean checkOverlaps) throws Exception {
+
+    public static int findAssignmentsErrorsCount(String filePath, boolean checkOverlaps) throws Exception {
 
         int duplicateAssignmentCount = 0;
 
@@ -33,7 +36,6 @@ public class CampAssignmentCleaner {
             if(checkAssignmentErrors(first, second, checkOverlaps)) {
                 duplicateAssignmentCount++;
             }
-
         }
 
         return duplicateAssignmentCount;

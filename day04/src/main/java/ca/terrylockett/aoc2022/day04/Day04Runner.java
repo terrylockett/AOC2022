@@ -8,11 +8,11 @@ public class Day04Runner {
         String inputFile = InputFileHelper.getFilePath(Day04Runner.class.getClassLoader(), "input.txt");
 
         //***** part 01 *****
-        int count = CampAssignmentCleaner.findDuplicateAssignments(inputFile);
+        int count = CampAssignmentCleaner.findAssignmentsErrorsCount(inputFile);
         System.out.println("Part 1: " + count);
 
         //***** part 01 *****
-        count = CampAssignmentCleaner.findDuplicateAssignments(inputFile, true);
+        count = CampAssignmentCleaner.findAssignmentsErrorsCount(inputFile, true);
         System.out.println("Part 2: " + count);
 
     }
