@@ -3,7 +3,7 @@ https://adventofcode.com/2022
 
 The Most beautiful java code ever written for AOC-2022 
 
-<img src="readme/aoc.png" width="300">
+<img src="readme/aoc.png" width="300" style="border-radius: 5px">
 
 Guaranteed I will finish all days.
 
@@ -21,4 +21,4 @@ All: `./gradlew run`
 
 Single project: `./gradlew <project name>:run`
 ### Test
-`./gradlew <project name>:test`
+`./gradlew test`

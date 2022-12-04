@@ -1,0 +1,7 @@
+dependencies {
+
+}
+
+application {
+    mainClass = 'ca.terrylockett.aoc2022.day04.Day04Runner'
+}
