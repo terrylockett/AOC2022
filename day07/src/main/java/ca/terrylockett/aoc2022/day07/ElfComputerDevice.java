@@ -5,18 +5,22 @@ import ca.terrylockett.aoc2022.day07.filesystem.DeviceFile;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 public class ElfComputerDevice {
     
-    public static final int MAX_FILE_SIZE = 100000;
+    public static final int PART_01_MAX_FILE_SIZE = 100000;
+    
+    public static final long MAX_DISC_SPACE = 70000000L;
+    public static final long UPDATE_SPACE = 30000000L;
     
     public static long part01(String filePath) throws FileNotFoundException {
         
         DeviceDir root = createFileSystemFromInput(filePath);
         
-        List<DeviceDir> smallDirs = root.getDirsSmallerThanN(MAX_FILE_SIZE);
+        List<DeviceDir> smallDirs = root.getDirsSmallerThanN(PART_01_MAX_FILE_SIZE);
         
         long total = 0;
         for(DeviceDir dir: smallDirs){
@@ -24,8 +28,20 @@ public class ElfComputerDevice {
         }
         return total;
     }
-    
-    
+
+    public static long part02(String filePath) throws FileNotFoundException {
+        DeviceDir root = createFileSystemFromInput(filePath);
+        
+        long currentFreeSpace = MAX_DISC_SPACE - root.getDirSize();
+        long spaceNeeded = UPDATE_SPACE - currentFreeSpace;
+        
+        List<DeviceDir> dirsToDelete = root.getDirsGreaterThanN(spaceNeeded);
+        dirsToDelete.sort(Comparator.comparing(DeviceDir::getDirSize));
+        
+        return dirsToDelete.get(0).getDirSize();
+    }
+
+
     static DeviceDir createFileSystemFromInput(String filePath) throws FileNotFoundException {
         
         DeviceDir rootDir = new DeviceDir("/", null);

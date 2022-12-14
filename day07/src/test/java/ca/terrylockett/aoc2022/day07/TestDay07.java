@@ -87,4 +87,9 @@ public class TestDay07 {
         assertEquals(24933642, root.getDirs().get("d").getDirSize());
     }
     
+    @Test
+    public void TestDay07Part02() throws Exception {
+        assertEquals(24933642, ElfComputerDevice.part02(testFilePath));
+    }
+    
 }

@@ -61,6 +61,20 @@ public class DeviceDir {
         
         return returnDirs;
     }
+
+    public List<DeviceDir> getDirsGreaterThanN(long n){
+        List<DeviceDir> returnDirs = new ArrayList<>();
+
+        for(String dirKey: dirs.keySet()){
+            long dirSize = dirs.get(dirKey).getDirSize();
+            if(dirSize >= n){
+                returnDirs.add(dirs.get(dirKey));
+            }
+            returnDirs.addAll(dirs.get(dirKey).getDirsGreaterThanN(n));
+        }
+
+        return returnDirs;
+    }
     
     
     
