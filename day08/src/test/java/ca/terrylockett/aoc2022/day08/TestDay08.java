@@ -24,6 +24,21 @@ public class TestDay08 {
         assertEquals(21,TreeHouseLocator.getNumberOfVisibleTrees_Part1(testFilePath));
     }
 
+    @Test
+    public void testDay08Part02() throws Exception {
+        assertEquals(8,TreeHouseLocator.getMaxScenicScore_Part2(testFilePath));
+    }
+
+    @Test
+    public void testPopulateScenicScore() throws Exception {
+        Grid grid = new Grid(5,5);
+        grid.populateFromFile(testFilePath);
+
+        assertEquals(4, grid.getTree(1,2).getScenicScore());
+
+        assertEquals(8, grid.getTree(3,2).getScenicScore());
+    }
+
 
 
     @Test

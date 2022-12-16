@@ -12,6 +12,11 @@ public class Day08Runner {
         
         int part1 = TreeHouseLocator.getNumberOfVisibleTrees_Part1(inputFile);
         System.out.println("Day08 Part01: "+ part1);
+        
+        int part2 = TreeHouseLocator.getMaxScenicScore_Part2(inputFile);
+        System.out.println("Day08 Part02: "+ part2);
     }
+    
+    
     
 }
