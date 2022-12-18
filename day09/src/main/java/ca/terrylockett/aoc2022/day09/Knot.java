@@ -5,13 +5,13 @@ import java.util.Set;
 
 public class Knot {
     
-    public int x = 0;
-    public int y = 0;
+    public int x = 12;
+    public int y = 12;
     
     private final Set<String> tracksMap = new HashSet<>();
     
     public Knot() {
-        this.setLocation(0,0);
+        this.setLocation(x,y);
     }
     
     public void setLocation(int x, int y) {
