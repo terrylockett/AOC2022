@@ -78,18 +78,10 @@ public class Rope {
                 return; //dont move
             }
             
-            int tailXMoveDirection;
-            int tailYMoveDirection;
-            //check if in same row or col.
-            if (head.x == tail.x || head.y == tail.y) {
-                tailXMoveDirection = Ints.constrainToRange((head.x - tail.x), -1, 1);
-                tailYMoveDirection = Ints.constrainToRange((head.y - tail.y), -1, 1);
-            } else { //move diagonal.
-                int xMove = head.x - tail.x;
-                int yMove = head.y - tail.y;
-                tailXMoveDirection = Ints.constrainToRange(xMove, -1, 1);
-                tailYMoveDirection = Ints.constrainToRange(yMove, -1, 1);
-            }
+            int xMove = head.x - tail.x;
+            int yMove = head.y - tail.y;
+            int tailXMoveDirection = Ints.constrainToRange(xMove, -1, 1);
+            int tailYMoveDirection = Ints.constrainToRange(yMove, -1, 1);
             
             tail.setLocation(tail.x + tailXMoveDirection, tail.y + tailYMoveDirection);
             
