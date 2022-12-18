@@ -43,6 +43,30 @@ public class TestDay10 {
     }
 
     @Test
+    public void testDay10Part02() throws Exception {
+        ClockCircuit clock = new ClockCircuit();
+        clock.procesInstructionSet(testfile2Path);
+        
+        String expectedLine0 = "##..##..##..##..##..##..##..##..##..##..";
+        assertEquals(expectedLine0, clock.renderCrtLine(0));
+        
+        String expectedLine1 = "###...###...###...###...###...###...###.";
+        assertEquals(expectedLine1, clock.renderCrtLine(1));
+
+        String expectedLine2 ="####....####....####....####....####....";
+        assertEquals(expectedLine2, clock.renderCrtLine(2));
+
+        String expectedLine3 ="#####.....#####.....#####.....#####.....";
+        assertEquals(expectedLine3, clock.renderCrtLine(3));
+
+        String expectedLine4 ="######......######......######......####";
+        assertEquals(expectedLine4, clock.renderCrtLine(4));
+
+        String expectedLine5 ="#######.......#######.......#######.....";
+        assertEquals(expectedLine5, clock.renderCrtLine(5));
+    }
+    
+    @Test
     public void testCyclesMapValues() throws Exception {
         ClockCircuit clock = new ClockCircuit();
         clock.procesInstructionSet(testfile2Path);
@@ -54,5 +78,5 @@ public class TestDay10 {
         assertEquals(16, clock.getCyclesMap().get(180));
         assertEquals(18, clock.getCyclesMap().get(220));
     }
-
+    
 }
