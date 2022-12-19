@@ -36,11 +36,19 @@ public class TestDay11 {
 
         assertEquals(10605, mp.getMonkeyBusinessScore());
     }
+
+    @Test
+    public void testDay11Part02() throws Exception {
+        mp.setWorry(false);
+        mp.playNRounds(10000);
+
+        assertEquals(2713310158L, mp.getMonkeyBusinessScore());
+    }
     
     @Test
     public void testMonkeyProcessor_loadInput_monkey0() throws Exception{
         Monkey testMonkey = mp.getMonkeys().get(0);
-        List<Integer> expectedItems = List.of(79, 98);
+        List<Long> expectedItems = List.of(79L, 98L);
         
         assertEquals(0, testMonkey.getName());
         assertEquals(expectedItems, testMonkey.getItems());
@@ -54,7 +62,7 @@ public class TestDay11 {
     @Test
     public void testMonkeyProcessor_loadInput_monkey1() throws Exception{
         Monkey testMonkey = mp.getMonkeys().get(1);
-        List<Integer> expectedItems = List.of(54, 65, 75, 74);
+        List<Long> expectedItems = List.of(54L, 65L, 75L, 74L);
         
         assertEquals(1, testMonkey.getName());
         assertEquals(expectedItems, testMonkey.getItems());
@@ -70,7 +78,7 @@ public class TestDay11 {
         MonkeyProcessor mp = new MonkeyProcessor();
         mp.processInput(testFilePath);
         Monkey testMonkey = mp.getMonkeys().get(2);
-        List<Integer> expectedItems = List.of(79, 60, 97);
+        List<Long> expectedItems = List.of(79L, 60L, 97L);
 
 
         assertEquals(2, testMonkey.getName());
@@ -85,7 +93,7 @@ public class TestDay11 {
     @Test
     public void testMonkeyProcessor_loadInput_monkey3() throws Exception{
         Monkey testMonkey = mp.getMonkeys().get(3);
-        List<Integer> expectedItems = List.of(74);
+        List<Long> expectedItems = List.of(74L);
         
         assertEquals(3, testMonkey.getName());
         assertEquals(expectedItems, testMonkey.getItems());
@@ -101,10 +109,10 @@ public class TestDay11 {
     public void testRound1() throws Exception {
         mp.playOneRound();
 
-        List<Integer> expectedItems = List.of(20, 23, 27, 26);
+        List<Long> expectedItems = List.of(20L, 23L, 27L, 26L);
         assertEquals(expectedItems, mp.getMonkeys().get(0).getItems());
         
-        expectedItems = List.of(2080, 25, 167, 207,401,1046);
+        expectedItems = List.of(2080L, 25L, 167L, 207L,401L,1046L);
         assertEquals(expectedItems, mp.getMonkeys().get(1).getItems());
         
         assertEquals(0, mp.getMonkeys().get(2).getItems().size());
@@ -115,10 +123,10 @@ public class TestDay11 {
     public void testRound2() throws Exception {
         mp.playNRounds(2);
 
-        List<Integer> expectedItems = List.of(695, 10, 71, 135,350);
+        List<Long> expectedItems = List.of(695L, 10L, 71L, 135L, 350L);
         assertEquals(expectedItems, mp.getMonkeys().get(0).getItems());
         
-        expectedItems = List.of(43, 49, 58, 55,362);
+        expectedItems = List.of(43L, 49L, 58L, 55L, 362L);
         assertEquals(expectedItems, mp.getMonkeys().get(1).getItems());
 
         assertEquals(0, mp.getMonkeys().get(2).getItems().size());
@@ -129,10 +137,10 @@ public class TestDay11 {
     public void testRound20() throws Exception {
         mp.playNRounds(20);
 
-        List<Integer> expectedItems = List.of(10, 12, 14, 26, 34);
+        List<Long> expectedItems = List.of(10L, 12L, 14L, 26L, 34L);
         assertEquals(expectedItems, mp.getMonkeys().get(0).getItems());
 
-        expectedItems = List.of(245, 93, 53, 199, 115);
+        expectedItems = List.of(245L, 93L, 53L, 199L, 115L);
         assertEquals(expectedItems, mp.getMonkeys().get(1).getItems());
 
         assertEquals(0, mp.getMonkeys().get(2).getItems().size());

@@ -13,7 +13,6 @@ public class MonkeyProcessor {
         Scanner scan = new Scanner(new FileInputStream(inputFile));
         
         while(scan.hasNextLine()){
-            
             Monkey monkey = new Monkey(this);
             
             //name
@@ -25,9 +24,9 @@ public class MonkeyProcessor {
             //item sets
             String[] itemsLine = scan.nextLine().substring(18).split(", ");
             int [] items = Arrays.stream(itemsLine).mapToInt(Integer::parseInt).toArray();
-            LinkedList<Integer> intsLinkedList = new LinkedList<>();
+            LinkedList<Long> intsLinkedList = new LinkedList<>();
             for(int i: items){
-                intsLinkedList.add(i);
+                intsLinkedList.add((long)i);
             }
             monkey.setItems(intsLinkedList);
             
@@ -38,7 +37,7 @@ public class MonkeyProcessor {
             
             //test
             String testLine = scan.nextLine();
-            monkey.setTest(Integer.parseInt(testLine.substring(21)));
+            monkey.setTest(Long.parseLong(testLine.substring(21)));
             
             //trueDestination
             String trueDstLine = scan.nextLine();
@@ -53,8 +52,15 @@ public class MonkeyProcessor {
                 scan.nextLine();
             }
         }
+        
+        long testValueProduction = 1;
+        for (Map.Entry<Integer, Monkey> monkeyEntry : monkeys.entrySet()) {
+            testValueProduction *= monkeyEntry.getValue().getTest();
+        }
+        for (Map.Entry<Integer, Monkey> monkeyEntry : monkeys.entrySet()) {
+            monkeyEntry.getValue().setMaxItemSize(testValueProduction);
+        }
     }
-
     
     public void playNRounds(int n) {
         for(int i=0; i<n; i++){
@@ -63,18 +69,18 @@ public class MonkeyProcessor {
     }
 
     void playOneRound() {
-        for (Map.Entry<Integer, Monkey> integerMonkeyEntry : monkeys.entrySet()) {
-            integerMonkeyEntry.getValue().doRound();
+        for (Map.Entry<Integer, Monkey> monkeyEntry : monkeys.entrySet()) {
+            monkeyEntry.getValue().doRound();
         }
     }
     
-    public void throwItem(int item, int monkey) {
+    public void throwItem(long item, int monkey) {
         monkeys.get(monkey).getItems().add(item);
     }
     
     
-    public int getMonkeyBusinessScore() {
-        List<Integer> scores = new ArrayList<>();
+    public long getMonkeyBusinessScore() {
+        List<Long> scores = new ArrayList<>();
         
         for(Map.Entry<Integer, Monkey> monkey : monkeys.entrySet()){
             scores.add(monkey.getValue().getInspectionCount());
@@ -84,7 +90,12 @@ public class MonkeyProcessor {
         return scores.get(scores.size()-1) * scores.get(scores.size()-2);
     }
     
-
+    public void setWorry(boolean isWorry) {
+        for (Map.Entry<Integer, Monkey> monkeyEntry : monkeys.entrySet()) {
+            monkeyEntry.getValue().setWorry(isWorry);
+        }
+    }
+    
     public Map<Integer, Monkey> getMonkeys() {
         return monkeys;
     }

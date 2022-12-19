@@ -11,5 +11,11 @@ public class Day11Runner {
         mp.processInput(inputFile);
         mp.playNRounds(20);
         System.out.println("Day 11 Part 01: " + mp.getMonkeyBusinessScore());
+
+        mp = new MonkeyProcessor();
+        mp.processInput(inputFile);
+        mp.setWorry(false);
+        mp.playNRounds(10000);
+        System.out.println("Day 11 Part 02: " + mp.getMonkeyBusinessScore());
     }
 }

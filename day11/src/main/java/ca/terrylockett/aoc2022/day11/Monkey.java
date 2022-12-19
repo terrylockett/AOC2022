@@ -5,14 +5,17 @@ import java.util.*;
 public class Monkey {
     
     private int name;
-    private LinkedList<Integer> items;
+    private LinkedList<Long> items;
     private String operationOperator;
     private String operationValue;
-    private int test;
+    private long test;
     private int trueDestination;
     private int falseDestination;
     
-    private int inspectionCount = 0;
+    private long inspectionCount = 0;
+    
+    private boolean isWorry = true;
+    private long MaxItemSize = 0;
     
     private final MonkeyProcessor processor;
     
@@ -24,12 +27,12 @@ public class Monkey {
 
         int listSize = items.size();;
         for(int i=0; i< listSize; i++ ) {  
-            Integer item = items.pop();
+            long item = items.pop();
             inspectionCount++;
             //apply operator
-            int operVal = item;
+            long operVal = item;
             if(!operationValue.equals("old")){
-                operVal = Integer.parseInt(operationValue);
+                operVal = Long.parseLong(operationValue);
             }
             
             if(operationOperator.equals("*")){
@@ -40,24 +43,35 @@ public class Monkey {
             }
             
             //divide by 3
-            item /= 3;
+            if(isWorry) {
+                item /= 3L;
+            }
+            
+            //squash items
+            if(MaxItemSize != 0 && item > MaxItemSize) {
+                item = item % MaxItemSize;
+            }
             
             //check the test
-            if( 0 == item%test){
+            if( 0 == item % test){
                 processor.throwItem(item, trueDestination);
             }
             else {
                 processor.throwItem(item, falseDestination);
             }
-            
         }
     }
     
     
-    
-    
-    //getters and setters
-    public int getInspectionCount() {
+    public void setWorry(boolean worry) {
+        isWorry = worry;
+    }
+
+    public void setMaxItemSize(long maxItemSize) {
+        this.MaxItemSize = maxItemSize;
+    }
+
+    public long getInspectionCount() {
         return inspectionCount;
     }
 
@@ -69,11 +83,11 @@ public class Monkey {
         this.name = name;
     }
 
-    public LinkedList<Integer> getItems() {
+    public LinkedList<Long> getItems() {
         return items;
     }
 
-    public void setItems(LinkedList<Integer> items) {
+    public void setItems(LinkedList<Long> items) {
         this.items = items;
     }
 
@@ -93,11 +107,11 @@ public class Monkey {
         this.operationValue = operationValue;
     }
 
-    int getTest() {
+    public long getTest() {
         return test;
     }
 
-    public void setTest(int test) {
+    public void setTest(long test) {
         this.test = test;
     }
 
